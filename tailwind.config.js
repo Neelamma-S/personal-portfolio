@@ -17,14 +17,12 @@ module.exports = {
         fadeIn: "fadeIn 0.5s ease forwards",
       },
       rotate: {
-        'x-6': '6deg',
-        'y-6': '6deg',
+        "x-6": "6deg",
+        "y-6": "6deg",
       },
-      perspective: {
-        1000: '1000px',
-      },
+      // Perspective isn’t supported natively in Tailwind.
+      // You can apply inline style like: style={{ perspective: '1000px' }}
     },
   },
   plugins: [],
 };
-
