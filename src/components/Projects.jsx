@@ -1,7 +1,7 @@
 // src/components/Projects.jsx
 import React from "react";
 import { projects } from "../data/projects";
-import { FaGamepad, FaBook, FaQuestionCircle, FaVolumeUp } from "react-icons/fa";
+import { FaGamepad, FaBook, FaQuestionCircle, FaVolumeUp, FaTasks } from "react-icons/fa";
 
 // Map project titles to default icons
 const defaultIconMap = {
@@ -9,6 +9,7 @@ const defaultIconMap = {
   "Library Management System": FaBook,
   "Quiz Game Web Application": FaQuestionCircle,
   "Text-to-Speech Web Application": FaVolumeUp,
+  "To-Do List Web Page": FaTasks,
 };
 
 const Projects = () => {
@@ -23,16 +24,17 @@ const Projects = () => {
         Projects
       </h2>
 
-      {/* Horizontal scroll container */}
-      <div className="overflow-x-auto px-6">
-        <div className="flex gap-6">
+      {/* Projects Container */}
+      <div className="px-6">
+        {/* Horizontal scroll on mobile, wrap and center on md+ */}
+        <div className="flex gap-6 overflow-x-auto md:flex-wrap md:justify-center md:overflow-x-visible py-4">
           {projects.map((project) => {
             const Icon = defaultIconMap[project.title] || FaQuestionCircle;
 
             return (
               <div
                 key={project.id}
-                className="flex-none w-64 rounded-3xl p-[1px]
+                className="flex-shrink-0 w-64 rounded-3xl p-[1px]
                            bg-gradient-to-r from-primary to-secondary
                            hover:scale-[1.05] transition-transform duration-300"
               >
