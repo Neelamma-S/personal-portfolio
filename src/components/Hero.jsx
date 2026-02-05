@@ -44,7 +44,7 @@ const Hero = () => {
         </h1>
 
         <p className="text-lg md:text-xl font-medium text-blue-300 mb-6">
-          GeoAI Intern @ Gesix Solutions Private Limited
+          Gesix GeoAI Intern
         </p>
 
         <p className="text-sm md:text-base text-slate-200 leading-relaxed font-normal">

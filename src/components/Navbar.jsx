@@ -1,7 +1,7 @@
 import { FiHome, FiCpu, FiFolder, FiMail, FiMenu, FiX } from "react-icons/fi";
 import { useState, useEffect } from "react";
 
-// ✅ Define menuItems outside the component
+// Define menu items outside the component
 const menuItems = [
   { name: "Home", slug: "home", icon: <FiHome size={18} /> },
   { name: "Tech Stack", slug: "tech-stack", icon: <FiCpu size={18} /> },
@@ -14,24 +14,40 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPos = window.scrollY + 120;
+    let ticking = false;
 
-      menuItems.forEach((item) => {
-        const section = document.getElementById(item.slug);
-        if (
-          section &&
-          section.offsetTop <= scrollPos &&
-          section.offsetTop + section.offsetHeight > scrollPos
-        ) {
-          setActiveSection(item.slug);
-        }
-      });
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollPos = window.scrollY + 120; // Adjust for fixed navbar
+          menuItems.forEach((item) => {
+            const section = document.getElementById(item.slug);
+            if (
+              section &&
+              section.offsetTop <= scrollPos &&
+              section.offsetTop + section.offsetHeight > scrollPos
+            ) {
+              setActiveSection(item.slug);
+            }
+          });
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Smooth scroll helper
+  const handleLinkClick = (slug) => {
+    const section = document.getElementById(slug);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsOpen(false); // Close mobile menu
+  };
 
   return (
     <nav
@@ -40,8 +56,8 @@ const Navbar = () => {
       aria-label="Main navigation"
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between py-4 px-6">
-        
-        {/* Left: Profile Avatar (shifted left) */}
+
+        {/* Left: Profile Avatar */}
         <div
           className="w-10 h-10 rounded-full bg-blue-900 text-white flex items-center justify-center font-bold text-lg
                      md:-ml-6"
@@ -70,10 +86,10 @@ const Navbar = () => {
         >
           {menuItems.map((item) => (
             <li key={item.slug}>
-              <a
-                href={`#${item.slug}`}
+              <button
+                onClick={() => handleLinkClick(item.slug)}
                 className={`flex items-center gap-1 relative font-semibold transition-all duration-300
-                  after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-blue-500
+                  after:content-[""] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-blue-500
                   hover:after:w-full ${
                     activeSection === item.slug
                       ? "text-blue-600 after:w-full"
@@ -81,11 +97,10 @@ const Navbar = () => {
                   }`}
               >
                 {item.icon} {item.name}
-              </a>
+              </button>
             </li>
           ))}
         </ul>
-
       </div>
     </nav>
   );
