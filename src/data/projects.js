@@ -14,7 +14,7 @@ export const projects = [
     title: "Library Management System",
     description: "Manage books, users, and borrowing efficiently.",
     tech: "Java, MySQL, Swing",
-    github: "https://github.com/your-repo/library-management",
+    github: "https://github.com/Neelamma-S/LibraryManagementSystem",
     icon: FaBook,
   },
   {
@@ -22,7 +22,7 @@ export const projects = [
     title: "Quiz Game Web Application",
     description: "An online quiz platform with multiple categories.",
     tech: "React, Node.js, Express, MongoDB",
-    github: "https://github.com/your-repo/quiz-game",
+    github: "https://github.com/Neelamma-S/Quiz-Game",
     icon: FaQuestionCircle,
   },
   {
@@ -30,7 +30,7 @@ export const projects = [
     title: "Text-to-Speech Web Application",
     description: "Convert text into speech using modern TTS APIs.",
     tech: "React, Web Speech API, CSS",
-    github: "https://github.com/your-repo/text-to-speech",
+    github: "https://github.com/Neelamma-S/Text_to_speech",
     icon: FaVolumeUp,
   },
 ];
