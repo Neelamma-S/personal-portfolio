@@ -1,7 +1,31 @@
+/* index.css or global CSS */
+
+/* Tailwind Imports */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+.hero-bg {
+  background: linear-gradient(135deg, #4f6bdc, #6b7fe6);
+}
+
+.hero-network {
+  animation: floatNetwork 22s ease-in-out infinite alternate;
+}
+
+@keyframes floatNetwork {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-25px);
+  }
+}
+
+.card-shadow {
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.35);
 }

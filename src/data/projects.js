@@ -1,30 +1,36 @@
+import { FaGamepad, FaBook, FaQuestionCircle, FaVolumeUp } from "react-icons/fa";
+
 export const projects = [
   {
+    id: 1,
     title: "Number Guessing Game",
-    description:
-      "Developed an interactive number guessing game using JavaScript, HTML, and CSS. The game provides real-time feedback and keeps track of user attempts, creating an engaging experience.",
-    tech: "HTML, CSS, JavaScript",
+    description: "A game where the player guesses a random number.",
+    tech: "React, JavaScript, CSS",
     github: "https://github.com/Neelamma-S/NumberGuessingGame",
+    icon: FaGamepad, // <-- React Icon component
   },
   {
+    id: 2,
     title: "Library Management System",
-    description:
-      "Built a Java-based console application to manage library records using object-oriented programming concepts and Java Collections.",
-    tech: "Java, Collections Framework",
-    github: "https://github.com/yourusername/library-management-system",
+    description: "Manage books, users, and borrowing efficiently.",
+    tech: "Java, MySQL, Swing",
+    github: "https://github.com/your-repo/library-management",
+    icon: FaBook,
   },
   {
+    id: 3,
     title: "Quiz Game Web Application",
-    description:
-      "Created an interactive quiz application with multiple-choice questions, real-time feedback, and score calculation.",
-    tech: "HTML, CSS, JavaScript",
-    github: "https://github.com/yourusername/quiz-game-web-app",
+    description: "An online quiz platform with multiple categories.",
+    tech: "React, Node.js, Express, MongoDB",
+    github: "https://github.com/your-repo/quiz-game",
+    icon: FaQuestionCircle,
   },
   {
+    id: 4,
     title: "Text-to-Speech Web Application",
-    description:
-      "Developed a web application to convert user-entered text into speech using browser-based APIs with a responsive interface.",
-    tech: "HTML, CSS, JavaScript",
-    github: "https://github.com/yourusername/text-to-speech-web-app",
+    description: "Convert text into speech using modern TTS APIs.",
+    tech: "React, Web Speech API, CSS",
+    github: "https://github.com/your-repo/text-to-speech",
+    icon: FaVolumeUp,
   },
 ];
